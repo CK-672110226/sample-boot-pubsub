@@ -1,10 +1,6 @@
 package lab.microservice.hello;
 
 import org.springframework.beans.factory.annotation.Value;
-<<<<<<< Updated upstream
-=======
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
->>>>>>> Stashed changes
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -16,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class GreetController {
 
 	private final KafkaTemplate<String, String> kafkaTemplate;
-<<<<<<< Updated upstream
 
 	@Value("${app.kafka.topic:greetings}")
 	private String topicName;
@@ -31,23 +26,6 @@ public class GreetController {
 		String message = "Hello " + name;
 		kafkaTemplate.send(topicName, message);
 		return new ResponseEntity<String>(message, HttpStatus.OK);
-=======
-
-	@Value("${app.kafka.topic:greetings}")
-	private String topicName;
-
-	public GreetController(KafkaTemplate<String, String> kafkaTemplate){
-		this.kafkaTemplate = kafkaTemplate;
-	}
-
-
-	// basic hello 
-	@GetMapping("/hello/{name}")
-	public ResponseEntity<String> hello(@PathVariable String name){
-		String message = "Hello" + name;
-		kafkaTemplate.send(topicName, message);
-		return new ResponseEntity<String>("Hello World", HttpStatus.OK);
->>>>>>> Stashed changes
 	}
 
 }

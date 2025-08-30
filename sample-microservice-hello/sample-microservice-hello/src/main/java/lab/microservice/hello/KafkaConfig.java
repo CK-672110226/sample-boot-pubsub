@@ -1,9 +1,5 @@
 package lab.microservice.hello;
 
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 import org.apache.kafka.clients.admin.NewTopic;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -19,10 +15,6 @@ public class KafkaConfig {
 	public NewTopic greetingsTopic() {
 		return new NewTopic(topicName, 1, (short) 1);
 	}
-<<<<<<< Updated upstream
 }
 
 
-=======
-}
->>>>>>> Stashed changes
